@@ -4,9 +4,9 @@ import Footer from "./Footer";
 // @ts-ignore
 export default function Layout({ children }) {
   return (
-    <div className={`relative w-full h-full`}>
+    <div className={`relative h-full w-full `}>
       <Navbar />
-      <main>{children}</main>
+      <main className={`bg-secondary dark:bg-tertiary`}>{children}</main>
       <Footer />
     </div>
   );
