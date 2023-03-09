@@ -3,7 +3,7 @@ let secondary = "#E7E8D1";
 let tertiary = "#A7BEAE";
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // darkMode: "class",
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
