@@ -20,10 +20,11 @@ export default function Footer() {
             className="flex items-center"
           >
             <Image
-              src={`/image/logo.png`}
+              priority={true}
+              src={`/image/logo.webp`}
               alt={`Your company logo`}
-              width={`50`}
-              height={`50`}
+              width={50}
+              height={50}
             />
             <span className="self-center whitespace-nowrap pl-2 text-2xl font-semibold text-white">
               Template
@@ -98,7 +99,8 @@ export default function Footer() {
           >
             Depak Borhara
           </a>{" "}
-          Free to use as a template, but template not for resale.
+          Free template. Not for resale or commercial use without explicit
+          approval of Depak Borhara.
         </span>
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
           <a

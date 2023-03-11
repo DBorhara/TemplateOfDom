@@ -1,6 +1,10 @@
 import { theme } from "../tailwind.config.js";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import Button from "./sampleComponents/Button";
+import Link from "next/link";
 export default function CallToAction() {
+  const router = useRouter();
   const { primary, secondary, tertiary } = theme?.extend?.colors as {
     primary: string;
     secondary: string;
@@ -37,18 +41,22 @@ export default function CallToAction() {
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-300">
             This template uses Next.js, TailwindCss, tRPC, Prisma ORM, and
-            PostgreSQL
+            PostgresSQL
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-            <a
-              href="#"
-              className="rounded-md bg-tertiary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            {/*TODO Create a Custom Link/<a> component because buttons should not navigate*/}
+            <Button
+              onClick={() => router.push("componentsList")}
+              bgColor={"tertiary"}
             >
               Get started
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
+            </Button>
+            <Link
+              href="#"
+              className="text-sm font-semibold leading-6 text-white"
+            >
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="relative mt-16 h-80 lg:mt-8">

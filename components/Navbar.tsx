@@ -1,29 +1,55 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { DarkModeBtn } from "./DarkModeBtn";
+import { DarkModeSwitch } from "./DarkModeSwitch";
+import Button from "./sampleComponents/Button";
+import { useTheme } from "next-themes";
+import theme from "tailwindcss/defaultTheme";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  // Type Definitions
+  interface Link {
+    id: number;
+    href: string;
+    title: string;
+  }
+  type navLinks = Link[];
+  const navLinks: navLinks = [
+    { id: 1, href: "/", title: "Home" },
+    { id: 2, href: "about", title: "About" },
+    { id: 3, href: "componentsList", title: "Components" },
+    { id: 4, href: "contact", title: "Contact" },
+  ];
+  const [isLight, setIsLight] = useState(true);
+  const { theme } = useTheme();
+
   const router = useRouter();
+
+  useEffect(() => {
+    setIsLight((prev) => !prev);
+  }, [theme]);
   return (
     <>
       <nav className="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-tertiary px-2 py-2 dark:border-gray-600 dark:bg-primary sm:px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
           <button onClick={() => router.push(`/`)} className="flex">
             <Image
-              src={`/image/logo.png`}
+              priority={true}
+              src={`/image/logo.webp`}
               alt={`Your company logo`}
-              width={`50`}
-              height={`50`}
+              width={60}
+              height={60}
             />
           </button>
           <div className="flex md:order-2">
-            <button
-              type="button"
-              className="mr-3 rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-tertiary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0"
+            <Button
+              onClick={() => router.push(componentsList)}
+              bgColor={"primary"}
+              darkBgColor={"tertiary"}
             >
               Get started
-            </button>
+            </Button>
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
@@ -52,41 +78,19 @@ export default function Navbar() {
             id="navbar-sticky"
           >
             <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-primary md:text-sm md:font-medium md:dark:bg-secondary">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <Link
+                    href={link.href}
+                    className="block rounded py-2 pl-3 pr-4 text-white hover:text-secondary dark:text-primary dark:hover:text-tertiary md:p-0"
+                    aria-current="page"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link
-                  href="/"
-                  className="block rounded py-2 pl-3 pr-4 text-white hover:text-secondary dark:text-primary dark:hover:text-tertiary md:p-0"
-                  aria-current="page"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="about"
-                  className="block rounded py-2 pl-3 pr-4 text-white hover:text-secondary dark:text-primary dark:hover:text-tertiary md:p-0"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block rounded py-2 pl-3 pr-4 text-white hover:text-secondary dark:text-primary dark:hover:text-tertiary md:p-0"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block rounded py-2 pl-3 pr-4 text-white hover:text-secondary dark:text-primary dark:hover:text-tertiary md:p-0"
-                >
-                  Contact
-                </a>
-              </li>
-              <li>
-                <DarkModeBtn />
+                <DarkModeSwitch />
               </li>
             </ul>
           </div>

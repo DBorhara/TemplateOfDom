@@ -1,7 +1,7 @@
-export default function About() {
+export default function ComponentList() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      About Us
+      Components List Page
     </div>
   );
 }
