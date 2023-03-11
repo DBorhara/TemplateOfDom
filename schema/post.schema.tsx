@@ -17,8 +17,8 @@ export const postSchema = z.object({
   title: z.string(),
   content: z.string().optional(),
   published: z.boolean(),
-  authors: z.array(user),
-  authorId: z.string(),
+  // authors: z.array(),
+  // authorId: z.string(),
 });
 
 export const getAllPostsSchema = z.array(postSchema);

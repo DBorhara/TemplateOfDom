@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { UserLogin } from "../schema/user.schema";
 
@@ -14,7 +14,7 @@ export default function SignIn() {
     watch,
     formState: { errors },
   } = useForm<UserLogin>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<UserLogin> = (data) => console.log(data);
 
   console.log(watch("userName")); // watch input value by passing the name of it
 

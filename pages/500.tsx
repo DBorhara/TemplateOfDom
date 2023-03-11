@@ -3,25 +3,25 @@ import { useRouter } from "next/router";
 export default function ServerError() {
   const router = useRouter();
   return (
-    <div className={`w-full min-h-screen flex`}>
+    <div className={`flex min-h-screen w-full`}>
       <div
-        className={`w-full bg-500 min-h-screen grid place-items-center z-10 `}
+        className={`z-10 grid min-h-screen w-full place-items-center bg-500 `}
       >
         <div>
           {/*TODO Customize Font*/}
           <div className={`flex`}>
-            <p className={`drop-shadow-2xl text-primary text-center text-9xl`}>
+            <p className={`text-center text-9xl text-primary drop-shadow-2xl`}>
               5
             </p>
-            <p className={`drop-shadow-2xl text-white text-center text-9xl`}>
+            <p className={`text-center text-9xl text-white drop-shadow-2xl`}>
               0
             </p>
-            <p className={`drop-shadow-2xl text-tertiary text-center text-9xl`}>
+            <p className={`text-center text-9xl text-tertiary drop-shadow-2xl`}>
               0
             </p>
           </div>
           <button
-            className={`hover:text-primary drop-shadow-2xl text-white text-center text-4xl`}
+            className={`text-center text-4xl text-white drop-shadow-2xl hover:text-primary`}
             onClick={() => router.push(`/`)}
           >
             Take Me Home

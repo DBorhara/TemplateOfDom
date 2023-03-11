@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { DarkModeSwitch } from "./DarkModeSwitch";
 import Button from "./sampleComponents/Button";
 import { useTheme } from "next-themes";
-import theme from "tailwindcss/defaultTheme";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -14,6 +13,7 @@ export default function Navbar() {
     href: string;
     title: string;
   }
+
   type navLinks = Link[];
   const navLinks: navLinks = [
     { id: 1, href: "/", title: "Home" },
@@ -44,7 +44,7 @@ export default function Navbar() {
           </button>
           <div className="flex md:order-2">
             <Button
-              onClick={() => router.push(componentsList)}
+              onClick={() => router.push("componentsList")}
               bgColor={"primary"}
               darkBgColor={"tertiary"}
             >

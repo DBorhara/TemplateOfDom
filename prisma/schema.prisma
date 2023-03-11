@@ -16,6 +16,7 @@ model Post {
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  String?
 }
+
 // Only related to session login
 model Account {
   id                 String  @id @default(cuid())

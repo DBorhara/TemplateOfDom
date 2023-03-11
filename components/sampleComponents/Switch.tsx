@@ -15,7 +15,7 @@ const Switch = ({ label, title, checked, onChange }: ButtonProps) => {
         className="inline-block pl-[0.15rem] pr-2 hover:cursor-pointer"
         htmlFor={title}
       >
-        {label}
+        {label || title}
       </label>
       <input
         id={title}

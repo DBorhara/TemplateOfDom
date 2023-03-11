@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ReactNode, MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;

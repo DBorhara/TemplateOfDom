@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Button from "./sampleComponents/Button";
 import Link from "next/link";
+
 export default function CallToAction() {
   const router = useRouter();
   const { primary, secondary, tertiary } = theme?.extend?.colors as {
