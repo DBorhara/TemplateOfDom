@@ -17,9 +17,9 @@ export default function Navbar() {
   type navLinks = Link[];
   const navLinks: navLinks = [
     { id: 1, href: "/", title: "Home" },
-    { id: 2, href: "about", title: "About" },
-    { id: 3, href: "componentsList", title: "Components" },
-    { id: 4, href: "contact", title: "Contact" },
+    { id: 2, href: "/about", title: "About" },
+    { id: 3, href: "/componentsList", title: "Components" },
+    { id: 4, href: "/contact", title: "Contact" },
   ];
   const [isLight, setIsLight] = useState(true);
   const { theme } = useTheme();

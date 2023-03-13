@@ -1,9 +1,13 @@
+import Link from "next/link";
 import { ChangeEvent, useState } from "react";
+import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
+import Button from "./Button";
+import { useRouter } from "next/router";
 
 export interface RowData {
   userName: string;
   email: string;
-  image: string;
+  location: string;
 }
 
 export interface tableData {
@@ -31,9 +35,19 @@ const Table = ({ tableData }: { tableData: tableData }) => {
       setSearchTerm(event.target.value);
     }, 500);
   };
-
+  const router = useRouter();
   return (
     <div className={`flex min-h-screen w-full flex-col justify-center py-2`}>
+      <div className={`flex max-w-fit pb-3 pl-10`}>
+        <Button
+          className={` flex rounded-lg bg-primary px-2 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-secondary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`}
+          bgColor={`primary`}
+          onClick={() => router.push(`/componentsList`)}
+        >
+          <ArrowUturnLeftIcon className={`h-4 w-4`} />
+          <p className={`pl-3`}>Components</p>
+        </Button>
+      </div>
       <div className="overflow-x-auto sm:px-10">
         <div className="bg-tertiary py-4 dark:bg-primary sm:rounded-t-lg sm:px-10">
           <label htmlFor="table-search" className="sr-only">
@@ -68,20 +82,20 @@ const Table = ({ tableData }: { tableData: tableData }) => {
         <table className="w-full border-collapse text-left text-sm text-gray-500 dark:text-gray-400">
           <thead className="bg-primary text-xs uppercase text-white dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    className={`h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800`}
-                  />
-                  <label htmlFor="checkbox-all-search" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </th>
+              {/*<th scope="col" className="p-4">*/}
+              {/*  <div className="flex items-center">*/}
+              {/*    <input*/}
+              {/*      id="checkbox-all-search"*/}
+              {/*      type="checkbox"*/}
+              {/*      className={`h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800`}*/}
+              {/*    />*/}
+              {/*    <label htmlFor="checkbox-all-search" className="sr-only">*/}
+              {/*      checkbox*/}
+              {/*    </label>*/}
+              {/*  </div>*/}
+              {/*</th>*/}
               {header.map((item) => (
-                <th key={`item`} scope="col" className="px-6 py-3">
+                <th key={item} scope="col" className="px-6 py-3">
                   {item}
                 </th>
               ))}
@@ -91,31 +105,31 @@ const Table = ({ tableData }: { tableData: tableData }) => {
             {filteredRows.map((row) => (
               <tr
                 key={row.email}
-                className="border-b bg-white hover:bg-tertiary dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-secondary"
+                className="border-b bg-white hover:bg-tertiary dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-primary dark:hover:text-white"
               >
-                <td className="w-4 p-4">
-                  <div className="flex items-center">
-                    <input
-                      id={`checkbox-table-search-${row.userName}`}
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800"
-                    />
-                    <label
-                      htmlFor={`checkbox-table-search-${row.userName}`}
-                      className="sr-only"
-                    >
-                      checkbox
-                    </label>
-                  </div>
-                </td>
+                {/*<td className="w-4 p-4">*/}
+                {/*  <div className="flex items-center">*/}
+                {/*    <input*/}
+                {/*      id={`checkbox-table-search-${row.userName}`}*/}
+                {/*      type="checkbox"*/}
+                {/*      className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-800"*/}
+                {/*    />*/}
+                {/*    <label*/}
+                {/*      htmlFor={`checkbox-table-search-${row.userName}`}*/}
+                {/*      className="sr-only"*/}
+                {/*    >*/}
+                {/*      checkbox*/}
+                {/*    </label>*/}
+                {/*  </div>*/}
+                {/*</td>*/}
                 <th
                   scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                  className="whitespace-nowrap px-6 py-4 font-medium"
                 >
                   {row.userName}
                 </th>
                 <td className="px-6 py-4">{row.email}</td>
-                <td className="px-6 py-4">{row.image}</td>
+                <td className="px-6 py-4">{row.location}</td>
               </tr>
             ))}
           </tbody>

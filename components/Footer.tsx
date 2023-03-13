@@ -26,7 +26,7 @@ export default function Footer() {
               width={50}
               height={50}
             />
-            <span className="self-center whitespace-nowrap pl-2 text-2xl font-semibold text-white">
+            <span className="self-center whitespace-nowrap pl-2 text-2xl font-semibold text-primary">
               Template
             </span>
           </button>
