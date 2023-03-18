@@ -17,9 +17,9 @@ export default function Navbar() {
   type navLinks = Link[];
   const navLinks: navLinks = [
     { id: 1, href: "/", title: "Home" },
-    { id: 2, href: "/about", title: "About" },
-    { id: 3, href: "/componentsList", title: "Components" },
-    { id: 4, href: "/contact", title: "Contact" },
+    { id: 2, href: "/colorPicker", title: "Pick Colors(WIP)" },
+    { id: 3, href: "/about", title: "About" },
+    { id: 4, href: "/componentsList", title: "Components" },
   ];
   const [isLight, setIsLight] = useState(true);
   const { theme } = useTheme();
@@ -33,11 +33,11 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-tertiary px-2 py-2 dark:border-gray-600 dark:bg-primary sm:px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
-          <button onClick={() => router.push(`/`)} className="flex">
+          <button onClick={() => router.push(`/`)} className="flex pr-10">
             <Image
-              priority={true}
+              priority
               src={`/image/logo.webp`}
-              alt={`Your company logo`}
+              alt={`Dark Mode Logo`}
               width={60}
               height={60}
             />

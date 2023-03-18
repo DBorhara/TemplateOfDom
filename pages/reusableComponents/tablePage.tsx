@@ -26,5 +26,9 @@ export default function TablePage() {
     header: ["UserName", "Email", "Image"],
     rows: dataArr,
   };
-  return <Table tableData={tableData} />;
+  return (
+    <div className={`flex min-h-screen w-full flex-col justify-center py-2`}>
+      <Table tableData={tableData} />
+    </div>
+  );
 }

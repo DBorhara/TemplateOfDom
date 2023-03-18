@@ -1,5 +1,4 @@
-// @flow
-import * as React from "react";
+// Libraries
 import { ChangeEventHandler, ReactNode } from "react";
 
 type ButtonProps = {
