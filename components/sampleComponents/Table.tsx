@@ -37,7 +37,7 @@ const Table = ({ tableData }: { tableData: tableData }) => {
   const router = useRouter();
   return (
     <>
-      <div className={`flex max-w-fit pb-3 pl-10`}>
+      <div className={`flex max-w-fit pb-3 pl-10 pt-10`}>
         <Button
           className={`flex rounded-lg bg-primary px-2 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-secondary dark:text-primary dark:hover:bg-primary dark:hover:text-white`}
           bgColor={`primary`}

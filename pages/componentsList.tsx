@@ -23,19 +23,15 @@ export default function ComponentList() {
       <ul className="mb-8 space-y-4 text-left text-gray-500 dark:text-gray-400">
         <li className="flex items-center space-x-3">
           {/*Icon*/}
-          <CheckIcon
-            className={`h-6 w-6 dark:bg-gray-600 dark:text-green-500`}
-          />
+          <CheckIcon className={`h-6 w-6 dark:text-primary`} />
           <span className={`text-black`}>Button Component</span>
-          <Button bgColor={`primary`} onClick={() => null}>
+          <Button type={"button"} bgColor={`primary`} onClick={() => null}>
             Sample
           </Button>
         </li>
         <li className="flex items-center space-x-3">
           {/*Icon*/}
-          <CheckIcon
-            className={`h-6 w-6 dark:bg-gray-600 dark:text-green-500`}
-          />
+          <CheckIcon className={`h-6 w-6 dark:text-primary`} />
           <span className={`text-black`}>Switch Component</span>
           <Switch
             title={"Title"}
@@ -46,9 +42,7 @@ export default function ComponentList() {
         </li>
         <li className="flex items-center space-x-3">
           {/*Icon*/}
-          <CheckIcon
-            className={`h-6 w-6 dark:bg-gray-600 dark:text-green-500`}
-          />
+          <CheckIcon className={`h-6 w-6 dark:text-primary`} />
           <Link
             className={`mr-3 rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-primary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`}
             href={"reusableComponents/tablePage"}
@@ -58,10 +52,12 @@ export default function ComponentList() {
         </li>
         <li className="flex items-center space-x-3">
           {/*Icon*/}
-          <CheckIcon
-            className={`h-6 w-6 dark:bg-gray-600 dark:text-green-500`}
-          />
-          <Button bgColor={`primary`} onClick={() => setModalOpen(true)}>
+          <CheckIcon className={`h-6 w-6  dark:text-primary`} />
+          <Button
+            type={"button"}
+            bgColor={`primary`}
+            onClick={() => setModalOpen(true)}
+          >
             Open Modal
           </Button>
           <Modal
@@ -71,6 +67,26 @@ export default function ComponentList() {
             setModalOpen={setModalOpen}
             confirmText={`Take My Data`}
           />
+        </li>
+        <li className="flex items-center space-x-3">
+          {/*Icon*/}
+          <CheckIcon className={`h-6 w-6 dark:text-primary`} />
+          <Link
+            className={`mr-3 rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-primary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`}
+            href={"reusableComponents/imageCardPage"}
+          >
+            <span className={`text-lg text-white`}>Image Card Component</span>
+          </Link>
+        </li>
+        <li className="flex items-center space-x-3">
+          {/*Icon*/}
+          <CheckIcon className={`h-6 w-6 dark:text-primary`} />
+          <Link
+            className={`mr-3 rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-primary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`}
+            href={"reusableComponents/formPage"}
+          >
+            <span className={`text-lg text-white`}>Form Component</span>
+          </Link>
         </li>
       </ul>
     </div>

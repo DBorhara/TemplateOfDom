@@ -1,20 +1,45 @@
-import { useController } from "react-hook-form";
+import {
+  Control,
+  FieldError,
+  FieldValues,
+  useController,
+} from "react-hook-form";
 
-const ControlledInput = (props: any) => {
+interface InputTypes {
+  className?: string;
+  type: string;
+  placeHolder?: string;
+  name: string;
+  control: Control<any>;
+  rules?: Partial<{
+    required: string | boolean;
+    minLength: number;
+    maxLength: number;
+    pattern: RegExp;
+  }>;
+  error?: FieldError;
+}
+
+const ControlledInput = ({
+  className,
+  type,
+  placeHolder,
+  error,
+  ...props
+}: InputTypes) => {
   const { field, fieldState } = useController(props);
 
   return (
     <>
       <input
-        className={props.className}
-        type={props.type}
+        className={className}
+        type={type}
         {...field}
-        placeholder={props.placeHolder}
+        placeholder={placeHolder}
       />
-      <p>{fieldState.isTouched && "Touched"}</p>
-      <p>{fieldState.isDirty && "Dirty"}</p>
-      <p>{fieldState.invalid ? "invalid" : "valid"}</p>
+      {error && <p className="text-red-500">{error.message}</p>}
     </>
   );
 };
+
 export default ControlledInput;

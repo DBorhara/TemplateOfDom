@@ -2,13 +2,15 @@
 import { MouseEventHandler, ReactNode, useEffect, useState } from "react";
 
 type ButtonProps = {
-  bgColor: string;
+  bgColor?: string;
   children: ReactNode;
   className?: string;
   darkBgColor?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  type: "button" | "submit" | "reset";
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 const Button = ({
+  type,
   children,
   bgColor,
   darkBgColor,
@@ -26,7 +28,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      type="button"
+      type={type}
       // TODO Make bg and darkBg work with tailwindCSS colors non string value Possibly bg-[${color}] or something like that
       className={customStyle}
     >
