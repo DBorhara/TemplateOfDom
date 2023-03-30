@@ -39,9 +39,10 @@ const Table = ({ tableData }: { tableData: tableData }) => {
     <>
       <div className={`flex max-w-fit pb-3 pl-10 pt-10`}>
         <Button
+          type={"link"}
           className={`flex rounded-lg bg-primary px-2 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-secondary dark:text-primary dark:hover:bg-primary dark:hover:text-white`}
           bgColor={`primary`}
-          onClick={() => router.push(`/componentsList`)}
+          link={`/componentsList`}
         >
           <ArrowUturnLeftIcon className={`h-4 w-4`} />
           <p className={`pl-3`}>Components</p>

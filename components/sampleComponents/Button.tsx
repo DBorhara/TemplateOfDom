@@ -1,14 +1,16 @@
-// Libraries
-import { MouseEventHandler, ReactNode, useEffect, useState } from "react";
+import { MouseEventHandler, ReactNode, useMemo } from "react";
+import Link from "next/link";
 
 type ButtonProps = {
   bgColor?: string;
   children: ReactNode;
   className?: string;
   darkBgColor?: string;
-  type: "button" | "submit" | "reset";
+  type: "button" | "submit" | "reset" | "link";
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  link?: string;
 };
+
 const Button = ({
   type,
   children,
@@ -16,24 +18,24 @@ const Button = ({
   darkBgColor,
   onClick,
   className,
+  link = "/",
 }: ButtonProps) => {
-  const [customStyle, setCustomStyle] = useState<string>(
-    `mr-3 rounded-lg bg-${bgColor} dark:bg-${darkBgColor} px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`
+  const customStyle = useMemo(
+    () =>
+      className ||
+      `mr-3 rounded-lg bg-${bgColor} dark:bg-${darkBgColor} px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:hover:bg-secondary dark:focus:ring-tertiary md:mr-0`,
+    [bgColor, darkBgColor, className]
   );
-  useEffect(() => {
-    if (className) {
-      setCustomStyle(className);
-    }
-  }, [className]);
-  return (
-    <button
-      onClick={onClick}
-      type={type}
-      // TODO Make bg and darkBg work with tailwindCSS colors non string value Possibly bg-[${color}] or something like that
-      className={customStyle}
-    >
+
+  return type === "link" ? (
+    <Link className={customStyle} href={link as string}>
+      {children}
+    </Link>
+  ) : (
+    <button onClick={onClick} type={type} className={customStyle}>
       {children}
     </button>
   );
 };
+
 export default Button;

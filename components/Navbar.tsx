@@ -56,7 +56,8 @@ export default function Navbar() {
           {/* Get started button container */}
           <div className="flex md:order-2">
             <Button
-              onClick={() => router.push("componentsList")}
+              type={"link"}
+              link={"componentsList"}
               bgColor={"primary"}
               darkBgColor={"tertiary"}
             >

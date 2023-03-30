@@ -37,28 +37,24 @@ const ControlledInput = ({
   const { field } = useController(props);
   const [calValue, setCalValue] = useState(null);
 
-  const handleCalValueChange = (newValue: any) => {
-    console.log("newValue:", newValue);
+  const handleValueChange = (newValue: any) => {
     setCalValue(newValue);
-    if (setValue) {
-      setValue(props.name, newValue);
-    } // Manually set the value using setValue from useForm
+    if (setValue) setValue(props.name, newValue);
   };
 
   if (type === "date") {
     return (
       <Datepicker
         value={calValue}
-        onChange={handleCalValueChange}
-        // Option props
-        primaryColor={"red"}
-        asSingle={true}
+        onChange={handleValueChange}
+        primaryColor="red"
+        asSingle
         useRange={false}
         showShortcuts={false}
-        showFooter={true}
+        showFooter
         readOnly={false}
         disabled={false}
-        placeholder={"Sample Cal"}
+        placeholder="Sample Cal"
         inputClassName={`col-span-2 pr-2 h-10 rounded-md outline-0 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary dark:focus-within:ring-secondary dark:bg-[#3B3B3B]`}
       />
     );

@@ -45,6 +45,7 @@ const Modal = ({
         <div className="text-gray-700 dark:text-secondary">{bodyText}</div>
         <div className="mt-4 flex justify-end ">
           <Button
+            type={"button"}
             bgColor={"primary"}
             darkBgColor={"tertiary"}
             className="mr-3 rounded-lg bg-primary px-4 py-2 text-white hover:bg-tertiary dark:bg-tertiary dark:hover:bg-secondary dark:hover:text-primary"
@@ -53,6 +54,7 @@ const Modal = ({
             {confirmText}
           </Button>
           <Button
+            type={"button"}
             bgColor={"primary"}
             className="rounded-lg bg-primary px-4 py-2 text-white hover:bg-tertiary dark:bg-tertiary dark:hover:bg-secondary dark:hover:text-primary"
             onClick={() => setModalOpen(false)}
