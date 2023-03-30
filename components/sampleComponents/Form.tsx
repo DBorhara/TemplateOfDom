@@ -15,28 +15,21 @@ interface MyFormValues extends FieldValues {
 }
 
 const Form = ({ formTitle }: FormProps) => {
-  const { handleSubmit, control, reset, setValue } = useForm<MyFormValues>({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      date: new Date(),
-    },
-  });
-  const formFields = [
-    { placeHolder: "Email", name: "email", type: "email" },
-    { placeHolder: "Password", name: "password", type: "password" },
-    { placeHolder: "First Name", name: "firstName", type: "text" },
-    { placeHolder: "Last Name", name: "lastName", type: "text" },
-    { placeHolder: "Date Picker", name: "datePicker", type: "date" },
-  ];
-
+  const { handleSubmit, control, reset, setValue, watch } =
+    useForm<MyFormValues>({
+      defaultValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        date: new Date(),
+      },
+    });
   const formSubmit = (data: object) => console.log(data);
 
   const inputClass =
     "pl-2 h-10 rounded-md outline-0 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary dark:focus-within:ring-secondary";
-
+  console.log(watch());
   return (
     <div className="w-1/3 rounded-lg bg-tertiary p-5">
       <div className="pb-5 text-center text-2xl">
@@ -44,7 +37,13 @@ const Form = ({ formTitle }: FormProps) => {
       </div>
       <form onSubmit={handleSubmit(formSubmit)}>
         <div className="grid grid-cols-2 grid-rows-4 gap-5 pb-5">
-          {formFields.map(({ type, placeHolder, name }) => (
+          {[
+            { placeHolder: "Email", name: "email", type: "email" },
+            { placeHolder: "Password", name: "password", type: "password" },
+            { placeHolder: "First Name", name: "firstName", type: "text" },
+            { placeHolder: "Last Name", name: "lastName", type: "text" },
+            { placeHolder: "Date Picker", name: "datePicker", type: "date" },
+          ].map(({ type, placeHolder, name }) => (
             <ControlledInput
               key={name}
               type={type}

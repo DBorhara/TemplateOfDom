@@ -37,17 +37,6 @@ const Table = ({ tableData }: { tableData: tableData }) => {
   const router = useRouter();
   return (
     <>
-      <div className={`flex max-w-fit pb-3 pl-10 pt-10`}>
-        <Button
-          type={"link"}
-          className={`flex rounded-lg bg-primary px-2 py-2.5 text-center text-sm font-medium text-white hover:bg-white hover:text-primary focus:outline-none focus:ring-4 focus:ring-secondary dark:bg-secondary dark:text-primary dark:hover:bg-primary dark:hover:text-white`}
-          bgColor={`primary`}
-          link={`/componentsList`}
-        >
-          <ArrowUturnLeftIcon className={`h-4 w-4`} />
-          <p className={`pl-3`}>Components</p>
-        </Button>
-      </div>
       <div className="overflow-x-auto sm:px-10">
         <div className="bg-tertiary py-4 dark:bg-primary sm:rounded-t-lg sm:px-10">
           <label htmlFor="table-search" className="sr-only">

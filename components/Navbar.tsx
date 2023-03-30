@@ -44,7 +44,7 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-tertiary px-2 py-2 dark:border-gray-600 dark:bg-primary sm:px-4">
         {/* Logo container */}
         <div className="container mx-auto flex flex-wrap items-center justify-between">
-          <button onClick={() => router.push(`/`)} className="flex pr-10">
+          <Button type={"link"} link={"/"} className="flex pr-10">
             <Image
               priority
               src={`/image/logo.webp`}
@@ -52,7 +52,7 @@ export default function Navbar() {
               width={60}
               height={60}
             />
-          </button>
+          </Button>
           {/* Get started button container */}
           <div className="flex md:order-2">
             <Button

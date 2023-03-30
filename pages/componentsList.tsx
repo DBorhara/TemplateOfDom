@@ -64,7 +64,7 @@ const ComponentList = () => {
             title={modalContent.title}
             bodyText={modalContent.bodyText}
             setModalOpen={handleModalClose}
-            confirmText="Take My Data"
+            confirmText="Submit"
           />
         </li>
         <li className="flex items-center space-x-3">

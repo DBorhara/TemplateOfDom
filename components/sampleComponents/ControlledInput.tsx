@@ -35,9 +35,9 @@ const ControlledInput = ({
   ...props
 }: InputTypes) => {
   const { field } = useController(props);
-  const [calValue, setCalValue] = useState(null);
+  const [calValue, setCalValue] = useState({ startDate: null, endDate: null });
 
-  const handleValueChange = (newValue: any) => {
+  const handleCalValueChange = (newValue: any) => {
     setCalValue(newValue);
     if (setValue) setValue(props.name, newValue);
   };
@@ -46,9 +46,9 @@ const ControlledInput = ({
     return (
       <Datepicker
         value={calValue}
-        onChange={handleValueChange}
+        onChange={handleCalValueChange}
         primaryColor="red"
-        asSingle
+        asSingle={true}
         useRange={false}
         showShortcuts={false}
         showFooter
