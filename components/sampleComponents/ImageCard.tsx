@@ -25,7 +25,7 @@ const ImageCard = ({
       </Link>
       <div className="p-5">
         <Link href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
             {title}
           </h5>
         </Link>

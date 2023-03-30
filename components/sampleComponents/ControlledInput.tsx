@@ -1,9 +1,6 @@
-import {
-  Control,
-  FieldError,
-  FieldValues,
-  useController,
-} from "react-hook-form";
+import { Control, FieldError, useController } from "react-hook-form";
+import { useState } from "react";
+import Datepicker from "react-tailwindcss-datepicker";
 
 interface InputTypes {
   className?: string;
@@ -18,6 +15,15 @@ interface InputTypes {
     pattern: RegExp;
   }>;
   error?: FieldError;
+  setValue?: (
+    name: string,
+    value: any,
+    options?: {
+      shouldValidate?: boolean;
+      shouldDirty?: boolean;
+      shouldTouch?: boolean;
+    }
+  ) => void;
 }
 
 const ControlledInput = ({
@@ -25,9 +31,38 @@ const ControlledInput = ({
   type,
   placeHolder,
   error,
+  setValue,
   ...props
 }: InputTypes) => {
-  const { field, fieldState } = useController(props);
+  const { field } = useController(props);
+  const [calValue, setCalValue] = useState(null);
+
+  const handleCalValueChange = (newValue: any) => {
+    console.log("newValue:", newValue);
+    setCalValue(newValue);
+    if (setValue) {
+      setValue(props.name, newValue);
+    } // Manually set the value using setValue from useForm
+  };
+
+  if (type === "date") {
+    return (
+      <Datepicker
+        value={calValue}
+        onChange={handleCalValueChange}
+        // Option props
+        primaryColor={"red"}
+        asSingle={true}
+        useRange={false}
+        showShortcuts={false}
+        showFooter={true}
+        readOnly={false}
+        disabled={false}
+        placeholder={"Sample Cal"}
+        inputClassName={`col-span-2 pr-2 h-10 rounded-md outline-0 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary dark:focus-within:ring-secondary dark:bg-[#3B3B3B]`}
+      />
+    );
+  }
 
   return (
     <>

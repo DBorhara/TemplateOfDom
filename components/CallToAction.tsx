@@ -1,15 +1,14 @@
-import { theme } from "../tailwind.config.js";
+import theme from "../tailwind.config.js";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Button from "./sampleComponents/Button";
 import Link from "next/link";
 
-export default function CallToAction() {
+const CallToAction = () => {
   const router = useRouter();
-  const { primary, secondary, tertiary } = theme?.extend?.colors as {
-    primary: string;
-    secondary: string;
-    tertiary: string;
+
+  const handleClick = async () => {
+    await router.push("componentsList");
   };
 
   return (
@@ -24,15 +23,9 @@ export default function CallToAction() {
             cx={512}
             cy={512}
             r={512}
-            fill={secondary}
+            fill={"secondary"}
             fillOpacity="0.7"
           />
-          <defs>
-            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-              <stop stopColor={primary} />
-              <stop offset={1} stopColor={secondary} />
-            </radialGradient>
-          </defs>
         </svg>
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -45,11 +38,7 @@ export default function CallToAction() {
             PostgresSQL
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-            {/*TODO Create a Custom Link/<a> component because buttons should not navigate*/}
-            <Button
-              onClick={() => router.push("componentsList")}
-              bgColor={"tertiary"}
-            >
+            <Button type={"button"} onClick={handleClick} bgColor={"tertiary"}>
               Get started
             </Button>
             <Link
@@ -72,4 +61,6 @@ export default function CallToAction() {
       </div>
     </div>
   );
-}
+};
+
+export default CallToAction;

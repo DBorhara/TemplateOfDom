@@ -11,19 +11,26 @@ interface MyFormValues extends FieldValues {
   password: string;
   firstName: string;
   lastName: string;
+  date: Date;
 }
 
-const formFields = [
-  { placeHolder: "Email", name: "email", type: "email" },
-  { placeHolder: "Password", name: "password", type: "password" },
-  { placeHolder: "First Name", name: "firstName", type: "text" },
-  { placeHolder: "Last Name", name: "lastName", type: "text" },
-];
-
 const Form = ({ formTitle }: FormProps) => {
-  const { handleSubmit, control } = useForm<MyFormValues>({
-    defaultValues: { firstName: "", lastName: "", email: "", password: "" },
+  const { handleSubmit, control, reset, setValue } = useForm<MyFormValues>({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      date: new Date(),
+    },
   });
+  const formFields = [
+    { placeHolder: "Email", name: "email", type: "email" },
+    { placeHolder: "Password", name: "password", type: "password" },
+    { placeHolder: "First Name", name: "firstName", type: "text" },
+    { placeHolder: "Last Name", name: "lastName", type: "text" },
+    { placeHolder: "Date Picker", name: "datePicker", type: "date" },
+  ];
 
   const formSubmit = (data: object) => console.log(data);
 
@@ -31,12 +38,12 @@ const Form = ({ formTitle }: FormProps) => {
     "pl-2 h-10 rounded-md outline-0 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary dark:focus-within:ring-secondary";
 
   return (
-    <div className="w-1/3">
+    <div className="w-1/3 rounded-lg bg-tertiary p-5">
       <div className="pb-5 text-center text-2xl">
         <h1>{formTitle}</h1>
       </div>
       <form onSubmit={handleSubmit(formSubmit)}>
-        <div className="grid grid-cols-2 grid-rows-3 gap-5 pb-5">
+        <div className="grid grid-cols-2 grid-rows-4 gap-5 pb-5">
           {formFields.map(({ type, placeHolder, name }) => (
             <ControlledInput
               key={name}
@@ -44,6 +51,7 @@ const Form = ({ formTitle }: FormProps) => {
               control={control}
               placeHolder={placeHolder}
               name={name}
+              setValue={setValue}
               className={
                 name === "firstName" || name === "lastName"
                   ? "col-span-1 " + inputClass
@@ -52,9 +60,14 @@ const Form = ({ formTitle }: FormProps) => {
             />
           ))}
         </div>
-        <Button bgColor="primary" type="submit">
-          Submit
-        </Button>
+        <div className={`flex flex-row justify-between`}>
+          <Button bgColor="primary" type="button" onClick={() => reset()}>
+            Reset Fields
+          </Button>
+          <Button bgColor="primary" type="submit">
+            Submit
+          </Button>
+        </div>
       </form>
     </div>
   );
