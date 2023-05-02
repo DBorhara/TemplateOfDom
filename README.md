@@ -4,12 +4,11 @@ TemplateOfDom is a modern and highly customizable web application built using Ne
 
 ## Features
 
--Next.js for server-rendered React applications and optimized build performance
-
-- TailwindCSS for rapid styling and responsive design
-- tRPC for efficient and type-safe API communication between the frontend and backend
-  -Prisma ORM for easy and intuitive database management
-- PostgreSQL for robust and scalable data storage
+- [Next.js](https://nextjs.org/docs): Server-rendered React applications and optimized build performance
+- [TailwindCSS](https://v2.tailwindcss.com/docs): Rapid styling and responsive design
+- [tRPC](https://trpc.io/docs): Efficient and type-safe API communication between the frontend and backend
+- [Prisma ORM](https://www.prisma.io/docs): Easy and intuitive database management
+- [PostgreSQL](https://www.postgresql.org/docs/14/index.html): Robust and scalable data storage
 - A collection of reusable components that can be easily customized and integrated into any project
 
 ## Getting Started
