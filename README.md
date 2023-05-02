@@ -1,131 +1,65 @@
-# Next.js + Tailwind CSS Example
+# TemplateOfDom
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+TemplateOfDom is a modern and highly customizable web application built using Next.js, TailwindCSS, tRPC, Prisma ORM, and PostgreSQL. It features a wide range of reusable components designed to accelerate development time and streamline the process of creating new projects. With minimal modifications, you can easily adapt these components to suit your specific needs and build your web applications faster.
 
-## Deploy your own
+## Features
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+-Next.js for server-rendered React applications and optimized build performance
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- TailwindCSS for rapid styling and responsive design
+- tRPC for efficient and type-safe API communication between the frontend and backend
+  -Prisma ORM for easy and intuitive database management
+- PostgreSQL for robust and scalable data storage
+- A collection of reusable components that can be easily customized and integrated into any project
 
-## How to use
+## Getting Started
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+To get started with TemplateOfDom, follow these steps:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+1. Clone the repository
 
 ```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+git clone https://github.com/yourusername/TemplateOfDom.git
+cd TemplateOfDom
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+2. Install dependencies
 
+```bash
+npm install
+# or
+yarn install
+```
 
-All Hex Codes
-100% — FF
-99% — FC
-98% — FA
-97% — F7
-96% — F5
-95% — F2
-94% — F0
-93% — ED
-92% — EB
-91% — E8
-90% — E6
-89% — E3
-88% — E0
-87% — DE
-86% — DB
-85% — D9
-84% — D6
-83% — D4
-82% — D1
-81% — CF
-80% — CC
-79% — C9
-78% — C7
-77% — C4
-76% — C2
-75% — BF
-74% — BD
-73% — BA
-72% — B8
-71% — B5
-70% — B3
-69% — B0
-68% — AD
-67% — AB
-66% — A8
-65% — A6
-64% — A3
-63% — A1
-62% — 9E
-61% — 9C
-60% — 99
-59% — 96
-58% — 94
-57% — 91
-56% — 8F
-55% — 8C
-54% — 8A
-53% — 87
-52% — 85
-51% — 82
-50% — 80
-49% — 7D
-48% — 7A
-47% — 78
-46% — 75
-45% — 73
-44% — 70
-43% — 6E
-42% — 6B
-41% — 69
-40% — 66
-39% — 63
-38% — 61
-37% — 5E
-36% — 5C
-35% — 59
-34% — 57
-33% — 54
-32% — 52
-31% — 4F
-30% — 4D
-29% — 4A
-28% — 47
-27% — 45
-26% — 42
-25% — 40
-24% — 3D
-23% — 3B
-22% — 38
-21% — 36
-20% — 33
-19% — 30
-18% — 2E
-17% — 2B
-16% — 29
-15% — 26
-14% — 24
-13% — 21
-12% — 1F
-11% — 1C
-10% — 1A
-9% — 17
-8% — 14
-7% — 12
-6% — 0F
-5% — 0D
-4% — 0A
-3% — 08
-2% — 05
-1% — 03
-0% — 00
+3. Set up your PostgreSQL database. Create a PostgreSQL database and update the DATABASE_URL in the .env file with your database connection string.
+
+```makefile
+DATABASE_URL="postgresql://user:password@localhost:5432/your-database-name"
+```
+
+4. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open http://localhost:3000 in your browser to see the TemplateOfDom application in action.
+
+## Customizing Components
+
+TemplateOfDom comes with a variety of reusable components that can be easily customized to fit your project's requirements. Simply copy the desired component folder from the components directory and paste it into your project. Then, modify the component's properties, styles, or functionality as needed.
+
+## Contributing
+
+Contributions to TemplateOfDom are welcome! Please follow these guidelines when submitting a pull request:
+
+1. Fork the project repository and create a new branch for your feature or bug fix.
+2. Write clear and concise commit messages describing the changes you've made.
+3. Update any relevant documentation to reflect your changes.
+4. Submit a pull request to the main repository for review.
+
+## License
+
+TemplateOfDom is released under the MIT License.
