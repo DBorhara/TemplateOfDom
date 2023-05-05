@@ -12,7 +12,7 @@ import Button from "../components/sampleComponents/Button";
 import Switch from "../components/sampleComponents/Switch";
 import Modal from "../components/sampleComponents/Modal";
 
-const ComponentList = () => {
+const GetStarted = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -105,4 +105,4 @@ const ComponentList = () => {
   );
 };
 
-export default ComponentList;
+export default GetStarted;

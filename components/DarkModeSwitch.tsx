@@ -16,7 +16,7 @@ export const DarkModeSwitch = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
   const label =
     theme === "light" ? (
-      <SunIcon className="h-6 w-6 text-yellow-500" />
+      <SunIcon className="h-6 w-6 text-yellow-300" />
     ) : (
       <MoonIcon className="h-6 w-6 text-white" />
     );
