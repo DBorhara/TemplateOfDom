@@ -1,24 +1,44 @@
-import z from "zod";
+// Import necessary functions and types from "zod" library
+import { boolean, number, object, string, TypeOf } from "zod";
 
-export const createPostSchema = z.object({
-  title: z.string(),
-  content: z.string().optional(),
-  published: z.boolean(),
-  // authors: add in author validation here later
-  authorId: z.string(),
+// Define the createPostSchema, which is a validation schema for creating a post
+export const createPostSchema = object({
+  title: string({ required_error: "Title is required" }),
+  content: string({ required_error: "Content is required" }),
+  category: string({ required_error: "Category is required" }),
+  image: string({ required_error: "Image is required" }),
+  published: boolean({ required_error: "Published is required" }),
 });
 
-export const getSinglePostSchema = z.object({
-  postId: z.string().cuid(),
+// Define the params schema to validate the "postId" parameter
+export const params = object({
+  postId: string(),
 });
 
-export const postSchema = z.object({
-  postId: z.string().cuid(),
-  title: z.string(),
-  content: z.string().optional(),
-  published: z.boolean(),
-  // authors: z.array(),
-  // authorId: z.string(),
+// Define the updatePostSchema, which is a validation schema for updating a post
+export const updatePostSchema = object({
+  // Include the "params" schema for postId validation
+  params,
+  // Define the "body" schema as a partial schema, allowing for partial updates
+  body: object({
+    title: string(),
+    content: string(),
+    category: string(),
+    image: string(),
+    published: boolean(),
+  }).partial(),
 });
 
-export const getAllPostsSchema = z.array(postSchema);
+// Define the filterQuery schema for pagination
+export const filterQuery = object({
+  limit: number().default(1),
+  page: number().default(10),
+});
+
+export type CreatePostInput = TypeOf<typeof createPostSchema>;
+
+export type ParamsInput = TypeOf<typeof params>;
+
+export type UpdatePostInput = TypeOf<typeof updatePostSchema>["body"];
+
+export type FilterQueryInput = TypeOf<typeof filterQuery>;
