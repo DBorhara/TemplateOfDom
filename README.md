@@ -6,9 +6,6 @@ TemplateOfDom is a modern and highly customizable web application built using Ne
 
 - [Next.js](https://nextjs.org/docs): Server-rendered React applications and optimized build performance
 - [TailwindCSS](https://v2.tailwindcss.com/docs): Rapid styling and responsive design
-- [tRPC](https://trpc.io/docs): Efficient and type-safe API communication between the frontend and backend
-- [Prisma ORM](https://www.prisma.io/docs): Easy and intuitive database management
-- [PostgreSQL](https://www.postgresql.org/docs/14/index.html): Robust and scalable data storage
 - A collection of reusable components that can be easily customized and integrated into any project
 
 ## Getting Started
@@ -30,13 +27,7 @@ npm install
 yarn install
 ```
 
-3. Set up your PostgreSQL database. Create a PostgreSQL database and update the DATABASE_URL in the .env file with your database connection string.
-
-```makefile
-DATABASE_URL="postgresql://user:password@localhost:5432/your-database-name"
-```
-
-4. Run the development server
+3. Run the development server
 
 ```bash
 npm run dev
